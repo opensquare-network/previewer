@@ -7,7 +7,7 @@ import { useState } from "react";
 const tag = "span";
 const attr = "data-identity-container";
 
-export const dynamicIdentity: Plugin = {
+export const dynamicIdentityPlugin: Plugin = {
   name: "dynamic-identity",
 
   collectCss(css) {

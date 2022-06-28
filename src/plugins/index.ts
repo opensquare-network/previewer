@@ -1,1 +1,1 @@
-export { dynamicIdentity } from "./dynamicIdentity";
+export { dynamicIdentityPlugin } from "./dynamicIdentity";
