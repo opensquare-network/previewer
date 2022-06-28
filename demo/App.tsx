@@ -1,7 +1,7 @@
 import React from "react";
 import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
-import { dynamicIdentity } from "../src/plugins/dynamicIdentity";
+import { dynamicIdentityPlugin } from "../src/plugins/dynamicIdentity";
 import "./index.css";
 const md = `
 ## heading
@@ -25,12 +25,12 @@ function App() {
     <div className="App">
       <div>
         <h2>html previewer</h2>
-        <HtmlPreviewer content={html} plugins={[dynamicIdentity]} />
+        <HtmlPreviewer content={html} plugins={[dynamicIdentityPlugin]} />
       </div>
 
       <div>
         <h2>markdown previewer</h2>
-        <MarkdownPreviewer content={md} plugins={[dynamicIdentity]} />
+        <MarkdownPreviewer content={md} plugins={[dynamicIdentityPlugin]} />
       </div>
     </div>
   );
