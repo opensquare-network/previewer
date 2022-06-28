@@ -1,5 +1,5 @@
 import React from "react";
-import type { Renderer } from "marked";
+import type { marked } from "marked";
 import type {
   FlattenInterpolation,
   ThemedCssFunction,
@@ -32,7 +32,7 @@ export type Plugin = {
   /**
    * @description Only works on `MarkdownPreviewer`
    */
-  extendMarkedRenderer?(renderer: Renderer): void;
+  markedOptions?(options: marked.MarkedOptions): void;
 
   onRenderedHtml?(el?: HTMLDivElement | null): void;
 };

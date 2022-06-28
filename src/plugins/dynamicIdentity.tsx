@@ -18,7 +18,9 @@ export const dynamicIdentityPlugin: Plugin = {
     `;
   },
 
-  extendMarkedRenderer(renderer) {
+  markedOptions(options) {
+    const renderer = options.renderer!;
+
     const origLink = renderer.link;
 
     renderer.link = function (href, title, text) {

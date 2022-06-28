@@ -9,10 +9,14 @@ export function MarkdownPreviewer(props: PreviewerProps) {
 
   const renderer = new Renderer();
 
-  applyPlugins(plugins, "extendMarkedRenderer", renderer);
-  marked.use({ renderer });
+  const markedOptions: marked.MarkedOptions = {
+    breaks: true,
+    renderer,
+  };
 
-  const html = marked.parse(content);
+  applyPlugins(plugins, "markedOptions", markedOptions);
+
+  const html = marked.parse(content, markedOptions);
 
   return (
     <HtmlPreviewer className="markdown-body" content={html} plugins={plugins} />
