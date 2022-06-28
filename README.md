@@ -9,12 +9,11 @@ yarn add @osn/previewer
 ```
 
 ```ts
-import { HtmlPreviewer, MarkdownPreviewer } from "@osn/previewer"
-import { dynamicIdentity } from '@osn/previewer/plugins'
+import { HtmlPreviewer, MarkdownPreviewer, dynamicIdentityPlugin } from "@osn/previewer"
 
 <HtmlPreviewer
   content="<div>html content</div>"
-  plugins={[dynamicIdentity]} // optional
+  plugins={[dynamicIdentityPlugin]} // optional
 />
 
 <MarkdownPreviewer
