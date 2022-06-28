@@ -5,14 +5,14 @@ import { useState } from "react";
 
 // TODO: container flag
 const tag = "span";
-const attr = "data-identity-container";
+const className = "identity-app";
 
 export const dynamicIdentityPlugin: Plugin = {
   name: "dynamic-identity",
 
   collectCss(css) {
     return css`
-      ${tag}[${attr}] {
+      ${tag}.${className} {
         display: inline-block;
       }
     `;
@@ -25,7 +25,7 @@ export const dynamicIdentityPlugin: Plugin = {
 
     renderer.link = function (href, title, text) {
       if (title) {
-        return `<${tag} ${attr} />`;
+        return `<${tag} class="${className}" />`;
       }
 
       return origLink.call(this, href, title, text);
@@ -33,7 +33,7 @@ export const dynamicIdentityPlugin: Plugin = {
   },
 
   onRenderedHtml(el) {
-    const targets = el?.querySelectorAll?.(`${tag}[${attr}]`);
+    const targets = el?.querySelectorAll?.(`${tag}.${className}`);
     targets?.forEach((t) => {
       if (t) {
         render(<IdentityUser />, t);
