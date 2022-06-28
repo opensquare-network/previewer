@@ -4,20 +4,13 @@ import type { HtmlProps, PreviewerProps } from "./types";
 import { css } from "styled-components";
 import { applyPlugins } from "./shared";
 import { sanitizeHtmlPlugin } from "./plugins";
-import sanitizeHtml from "sanitize-html";
 
 export function HtmlPreviewer(props: PreviewerProps) {
   const {
     plugins = [],
     content = "",
     className = "html-body",
-    allowedTags = sanitizeHtml.defaults.allowedTags.concat([
-      "img",
-      "iframe",
-      "br",
-      "ins",
-      "del",
-    ]),
+    allowedTags,
   } = props;
 
   const resolvePlugins = [sanitizeHtmlPlugin(allowedTags), ...plugins];

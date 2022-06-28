@@ -2,7 +2,9 @@ import type { Plugin, PreviewerProps } from "../types";
 import sanitizeHtml from "sanitize-html";
 
 export function sanitizeHtmlPlugin(
-  allowedTags: PreviewerProps["allowedTags"]
+  allowedTags: PreviewerProps["allowedTags"] = sanitizeHtml.defaults.allowedTags.concat(
+    ["img", "iframe", "br", "ins", "del"]
+  )
 ): Plugin {
   return {
     name: "sanitize-html",
