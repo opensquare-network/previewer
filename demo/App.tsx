@@ -16,7 +16,7 @@ const html = `
 
 <p><a href="https://google.com">Google</a></p>
 
-<p>Render as React Component with random number: <span data-identity-container /></p>
+<p>Render as React Component with random number: <span class="identity-app" /></p>
 </div>
 `;
 
