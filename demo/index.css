@@ -1,0 +1,9 @@
+.App {
+  display: flex;
+  max-width: 74rem;
+  margin: 0 auto;
+}
+
+.App div {
+  flex: 1;
+}
