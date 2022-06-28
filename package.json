@@ -1,10 +1,30 @@
 {
-  "name": "@osn/markdown-previewer",
+  "name": "@osn/previewer",
   "version": "0.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:demo": "tsc && vite build",
+    "build": "tsup --dts --format esm --clean --inject ./react-import.js ./src",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": "./dist/*",
+    "./plugins": {
+      "import": "./dist/plugins/index.mjs",
+      "types": "./dist/plugins/index.d.ts"
+    }
   },
   "dependencies": {
     "marked": "^4.0.17"
@@ -22,6 +42,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.5",
+    "tsup": "^6.1.2",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   }
