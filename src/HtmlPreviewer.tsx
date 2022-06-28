@@ -3,19 +3,27 @@ import { Html } from "./components/Html";
 import type { HtmlProps, PreviewerProps } from "./types";
 import { css } from "styled-components";
 import { applyPlugins } from "./shared";
+import { sanitizeHtmlPlugin } from "./plugins";
 
 export function HtmlPreviewer(props: PreviewerProps) {
-  const { plugins = [], content = "", className = "html-body" } = props;
+  const {
+    plugins = [],
+    content = "",
+    className = "html-body",
+    allowedTags,
+  } = props;
 
-  const ref = useRef<HTMLDivElement>(null);
+  const resolvePlugins = [sanitizeHtmlPlugin(allowedTags), ...plugins];
 
   const extraCss: HtmlProps["extraCss"] = [];
-  applyPlugins(plugins, "collectCss", css, (str) => extraCss.push(str));
+  applyPlugins(resolvePlugins, "collectCss", css, (str) => extraCss.push(str));
 
-  const [html] = useState(content);
+  const ref = useRef<HTMLDivElement>(null);
+  const [html, setHtml] = useState(content);
 
   useEffect(() => {
-    applyPlugins(plugins, "onRenderedHtml", ref.current);
+    applyPlugins(resolvePlugins, "processHtml", html, setHtml);
+    applyPlugins(resolvePlugins, "onRenderedHtml", ref.current);
   }, [html]);
 
   return (

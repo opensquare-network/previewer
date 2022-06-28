@@ -13,6 +13,8 @@ export type PreviewerProps = {
   content?: string;
 
   className?: React.HTMLAttributes<HTMLElement>["className"];
+
+  allowedTags?: string[];
 };
 
 export type HtmlProps = React.PropsWithChildren<{
@@ -33,6 +35,8 @@ export type Plugin = {
    * @description Only works on `MarkdownPreviewer`
    */
   markedOptions?(options: marked.MarkedOptions): void;
+
+  processHtml?(html: string): string;
 
   onRenderedHtml?(el?: HTMLDivElement | null): void;
 };
