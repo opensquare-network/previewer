@@ -23,7 +23,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
       <Html
         className={className}
         extraCss={extraCss}
-        {...{ dangerouslySetInnerHTML: { __html: html } }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
   );
