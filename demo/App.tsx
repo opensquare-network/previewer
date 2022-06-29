@@ -1,14 +1,14 @@
 import React from "react";
 import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
-import { dynamicIdentityPlugin } from "../src/plugins/dynamicIdentity";
+import { renderIdentityOrAddressPlugin } from "../src/plugins";
 import "./index.css";
 const md = `
 ## heading
 
 [Google](https://google.com)
 
-Render as React Component with random number: [github](https://github.com "github")
+Render identity or addr: [@displayName1](Ff3u3eNGBjHyHqvPd3qEeZg51UqJa6AFJRRqJTTj29sp4ST-westend) [@displayName2](Ff3u3eNGBjHyHqvPd3qEeZg51UqJa6AFJRRqJTTj29sp4ST-karura)
 `;
 
 const html = `
@@ -16,21 +16,43 @@ const html = `
 
 <p><a href="https://google.com">Google</a></p>
 
-<p>Render as React Component with random number: <span class="identity-app" /></p>
+<p>
+  Render identity or addr:
+  <a href="https://google.com" osn-polka-address="Ff3u3eNGBjHyHqvPd3qEeZg51UqJa6AFJRRqJTTj29sp4ST" osn-polka-network="westend">
+    @displayName1
+  </a>
+  <a href="https://google.com" osn-polka-address="Ff3u3eNGBjHyHqvPd3qEeZg51UqJa6AFJRRqJTTj29sp4ST" osn-polka-network="karura">
+    @displayName2
+  </a>
+</p>
 </div>
 `;
+
+function IdentityOrAddr({ address = "", network = "" }) {
+  return (
+    <a href={`/#/network/${network}/address/${address}`}>
+      {address.slice(0, 3)}...{address.slice(address.length - 3)}
+    </a>
+  );
+}
 
 function App() {
   return (
     <div className="App">
       <div>
         <h2>html previewer</h2>
-        <HtmlPreviewer content={html} plugins={[dynamicIdentityPlugin]} />
+        <HtmlPreviewer
+          content={html}
+          plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+        />
       </div>
 
       <div>
         <h2>markdown previewer</h2>
-        <MarkdownPreviewer content={md} plugins={[dynamicIdentityPlugin]} />
+        <MarkdownPreviewer
+          content={md}
+          plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+        />
       </div>
     </div>
   );
