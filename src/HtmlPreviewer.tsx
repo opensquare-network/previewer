@@ -22,7 +22,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
   const [html, setHtml] = useState(content);
 
   useEffect(() => {
-    applyPlugins(resolvePlugins, "processHtml", html, setHtml);
+    applyPlugins(resolvePlugins, "transformHtml", html, setHtml);
     applyPlugins(resolvePlugins, "onRenderedHtml", ref.current);
   }, [html]);
 
