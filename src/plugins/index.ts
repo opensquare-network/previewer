@@ -1,2 +1,2 @@
-export { dynamicIdentityPlugin } from "./dynamicIdentity";
+export { renderIdentityOrAddressPlugin } from "./renderIdentityOrAddress";
 export { sanitizeHtmlPlugin } from "./sanitizeHtml";
