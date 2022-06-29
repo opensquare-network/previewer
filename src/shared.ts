@@ -6,7 +6,7 @@ export function applyPlugins(
   plugins: Plugin[],
   key: keyof Plugin,
   param?: any,
-  cb = noop
+  cb = noop,
 ) {
   plugins.forEach((plugin) => {
     const fn = plugin[key];

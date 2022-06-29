@@ -3,8 +3,8 @@ import sanitizeHtml from "sanitize-html";
 
 export function sanitizeHtmlPlugin(
   allowedTags: PreviewerProps["allowedTags"] = sanitizeHtml.defaults.allowedTags.concat(
-    ["img", "iframe", "br", "ins", "del"]
-  )
+    ["img", "iframe", "br", "ins", "del"],
+  ),
 ): Plugin {
   return {
     name: "sanitize-html",
