@@ -9,7 +9,7 @@ export function sanitizeHtmlPlugin(
   return {
     name: "sanitize-html",
 
-    processHtml(html) {
+    transformHtml(html) {
       return sanitizeHtml(html, {
         allowedTags,
         allowedAttributes: {

@@ -36,7 +36,7 @@ export type Plugin = {
    */
   markedOptions?(options: marked.MarkedOptions): void;
 
-  processHtml?(html: string): string;
+  transformHtml?(html: string): string;
 
   onRenderedHtml?(el?: HTMLDivElement | null): void;
 };
