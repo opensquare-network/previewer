@@ -13,7 +13,7 @@ function IdentityOrAddr({ address = "", network = "" }) {
 }
 
 MarkdownPreviewer.plugin(renderIdentityOrAddressPlugin(<IdentityOrAddr />));
-// HtmlPreviewer.plugin(renderIdentityOrAddressPlugin(<IdentityOrAddr />));
+HtmlPreviewer.plugin(renderIdentityOrAddressPlugin(<IdentityOrAddr />));
 
 const md = `
 ## heading

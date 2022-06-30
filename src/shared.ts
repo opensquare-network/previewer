@@ -15,7 +15,7 @@ export function applyPlugins(hook: keyof Plugin, param?: any, cb = noop) {
 }
 
 /**
- * @description Register a plugin, the registered plugins will share to `MarkdownPreviewer` and `HtmlPreviewer`
+ * @description Register a plugin
  */
 export function registerPlugin(plugin: Plugin) {
   if (registeredPlugins.some((p) => p.name === plugin.name)) {
