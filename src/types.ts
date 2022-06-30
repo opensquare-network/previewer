@@ -6,6 +6,7 @@ import type {
 } from "styled-components";
 
 export type PreviewerProps = {
+  plugins?: Plugin[];
   /**
    * @description The content to preview
    */
@@ -36,7 +37,7 @@ export type Plugin = {
   markedOptions?(options: marked.MarkedOptions): void;
 
   /**
-   * @param html html string
+   * @param html sanitized html
    * @description transform html
    */
   transformHtml?(html: string): string;
