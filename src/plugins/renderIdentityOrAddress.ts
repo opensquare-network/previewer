@@ -1,4 +1,6 @@
 // for business logic
+// parse markdown link `[@DisplayName](Address-Network)`
+// to `<IdentityOrAddr />` and pass address, network to the component
 
 import { render } from "react-dom";
 import type { Plugin } from "../types";
