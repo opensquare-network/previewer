@@ -3,6 +3,51 @@ import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
 import { renderIdentityOrAddressPlugin } from "../src/plugins";
 import "./index.css";
+
+const mdFeatures = `
+# heading 1
+## heading 2
+### heading 3
+#### heading 4
+
+Text
+
+_Italic Text_
+
+**Bold Text**
+
+_**Bold Italic Text**_
+
+---
+
+~~Strikethrough~~
+
+- list
+- list
+  - child list
+
+1. ordered
+2. ordered
+  2.1 child ordered
+
+> Quote
+> > nested quote
+> > > nested quote
+
+\`\`\`sh
+code block
+\`\`\`
+
+\`inline code\`
+
+https://voting.opensquare.io/
+
+|Syntax|Description|TestText|
+|-|-|-|
+|Header|Title|Hero|
+|Header|Title|Hero|
+`;
+
 const md = `
 ## heading
 
@@ -39,20 +84,27 @@ function IdentityOrAddr({ address = "", network = "" }) {
 function App() {
   return (
     <div className="App">
-      <div>
-        <h2>html previewer</h2>
-        <HtmlPreviewer
-          content={html}
-          plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
-        />
-      </div>
+      <div className="features">
+        <div>
+          <h2>Features</h2>
+          <MarkdownPreviewer content={mdFeatures} />
+        </div>
 
-      <div>
-        <h2>markdown previewer</h2>
-        <MarkdownPreviewer
-          content={md}
-          plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
-        />
+        <div>
+          <h2>html previewer</h2>
+          <HtmlPreviewer
+            content={html}
+            plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+          />
+        </div>
+
+        <div>
+          <h2>markdown previewer</h2>
+          <MarkdownPreviewer
+            content={md}
+            plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+          />
+        </div>
       </div>
     </div>
   );

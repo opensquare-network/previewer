@@ -1,9 +1,11 @@
 .App {
-  display: flex;
   max-width: 74rem;
   margin: 0 auto;
 }
 
-.App div {
+.features {
+  display: flex;
+}
+.features div {
   flex: 1;
 }
