@@ -26,3 +26,9 @@ function IdentityOrAddr({ address, network }) {
   content="markdown content"
 />
 ```
+
+### Release
+
+```console
+yarn release
+```
