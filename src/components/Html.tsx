@@ -20,7 +20,6 @@ const Wrapper = styled.div<HtmlProps>`
 
   &.markdown-body,
   &.html-body {
-    max-width: 48.5em;
     word-break: normal;
 
     h1,
