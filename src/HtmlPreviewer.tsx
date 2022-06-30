@@ -13,17 +13,17 @@ export function HtmlPreviewer(props: PreviewerProps) {
     allowedTags,
   } = props;
 
-  const resolvePlugins = [sanitizeHtmlPlugin(allowedTags), ...plugins];
+  const resolvedPlugins = [sanitizeHtmlPlugin(allowedTags), ...plugins];
 
   const extraCss: HtmlProps["extraCss"] = [];
-  applyPlugins(resolvePlugins, "collectCss", css, (str) => extraCss.push(str));
+  applyPlugins(resolvedPlugins, "collectCss", css, (str) => extraCss.push(str));
 
   const ref = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState(content);
 
   useEffect(() => {
-    applyPlugins(resolvePlugins, "transformHtml", html, setHtml);
-    applyPlugins(resolvePlugins, "onRenderedHtml", ref.current);
+    applyPlugins(resolvedPlugins, "transformHtml", html, setHtml);
+    applyPlugins(resolvedPlugins, "onRenderedHtml", ref.current);
   }, [html]);
 
   return (
