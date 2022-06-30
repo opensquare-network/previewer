@@ -3,18 +3,6 @@ import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
 import { renderIdentityOrAddressPlugin } from "../src/plugins";
 import "./index.css";
-
-function IdentityOrAddr({ address = "", network = "" }) {
-  return (
-    <a href={`/#/network/${network}/address/${address}`}>
-      {address.slice(0, 3)}...{address.slice(address.length - 3)}
-    </a>
-  );
-}
-
-MarkdownPreviewer.plugin(renderIdentityOrAddressPlugin(<IdentityOrAddr />));
-HtmlPreviewer.plugin(renderIdentityOrAddressPlugin(<IdentityOrAddr />));
-
 const md = `
 ## heading
 
@@ -40,17 +28,31 @@ const html = `
 </div>
 `;
 
+function IdentityOrAddr({ address = "", network = "" }) {
+  return (
+    <a href={`/#/network/${network}/address/${address}`}>
+      {address.slice(0, 3)}...{address.slice(address.length - 3)}
+    </a>
+  );
+}
+
 function App() {
   return (
     <div className="App">
       <div>
         <h2>html previewer</h2>
-        <HtmlPreviewer content={html} />
+        <HtmlPreviewer
+          content={html}
+          plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+        />
       </div>
 
       <div>
         <h2>markdown previewer</h2>
-        <MarkdownPreviewer content={md} />
+        <MarkdownPreviewer
+          content={md}
+          plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+        />
       </div>
     </div>
   );
