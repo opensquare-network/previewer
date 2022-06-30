@@ -2,23 +2,28 @@ import { useEffect, useRef, useState } from "react";
 import { Html } from "./components/Html";
 import type { HtmlProps, PreviewerProps } from "./types";
 import { css } from "styled-components";
-import { applyPlugins, registerPlugin } from "./shared";
+import { applyPlugins } from "./shared";
 import { sanitizeHtmlPlugin } from "./plugins";
 
 export function HtmlPreviewer(props: PreviewerProps) {
-  const { content = "", className = "html-body", allowedTags } = props;
+  const {
+    plugins = [],
+    content = "",
+    className = "html-body",
+    allowedTags,
+  } = props;
 
-  registerPlugin(sanitizeHtmlPlugin(allowedTags));
+  const resolvePlugins = [sanitizeHtmlPlugin(allowedTags), ...plugins];
 
   const extraCss: HtmlProps["extraCss"] = [];
-  applyPlugins("collectCss", css, (str) => extraCss.push(str));
+  applyPlugins(resolvePlugins, "collectCss", css, (str) => extraCss.push(str));
 
   const ref = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState(content);
 
   useEffect(() => {
-    applyPlugins("transformHtml", html, setHtml);
-    applyPlugins("onRenderedHtml", ref.current);
+    applyPlugins(resolvePlugins, "transformHtml", html, setHtml);
+    applyPlugins(resolvePlugins, "onRenderedHtml", ref.current);
   }, [html]);
 
   return (
@@ -31,5 +36,3 @@ export function HtmlPreviewer(props: PreviewerProps) {
     </div>
   );
 }
-
-HtmlPreviewer.plugin = registerPlugin;
