@@ -28,7 +28,7 @@ const Wrapper = styled.div<HtmlProps>`
     h4,
     h5,
     h6 {
-      font-weight: 500;
+      font-weight: 600;
 
       :not(:first-child) {
         margin-top: 0.25em;
@@ -44,39 +44,27 @@ const Wrapper = styled.div<HtmlProps>`
     }
 
     h1 {
-      line-height: 2em;
-      font-size: 1.25em;
+      line-height: 28px;
+      font-size: 20px;
     }
 
     h2 {
-      line-height: 1.875em;
-      font-size: 1.1875em;
+      line-height: 24px;
+      font-size: 18px;
     }
 
     h3 {
-      line-height: 1.75em;
-      font-size: 1.125em;
+      line-height: 24px;
+      font-size: 16px;
     }
 
     h4 {
-      line-height: 1.625em;
-      font-size: 1em;
-    }
-
-    h5 {
-      line-height: 1.5em;
-      font-size: 0.9375em;
-    }
-
-    h6 {
-      line-height: 1.375em;
-      font-size: 0.875em;
+      line-height: 24px;
+      font-size: 14px;
     }
 
     p {
-      max-width: 48.5em;
       word-break: break-word;
-      line-height: 24px !important;
     }
 
     ol,
@@ -103,9 +91,9 @@ const Wrapper = styled.div<HtmlProps>`
       }
 
       margin: 8px 0;
-      padding: 0 1em;
-      background: #f5f8fa !important;
-      border-radius: 0.25em;
+      padding: 0 8px;
+      background-color: #f0f3f8 !important;
+      border-radius: 4px;
       white-space: pre-wrap !important;
       overflow-x: scroll;
 
@@ -125,9 +113,9 @@ const Wrapper = styled.div<HtmlProps>`
         Liberation Mono, monospace !important;
       ${no_scroll_bar};
       max-width: 100%;
-      padding: 0 0.25em;
-      background: #f5f8fa !important;
-      border-radius: 0.25em;
+      padding: 0 8px;
+      background-color: #f0f3f8 !important;
+      border-radius: 4px;
       white-space: nowrap !important;
       word-break: keep-all;
       overflow-x: scroll;
@@ -135,8 +123,9 @@ const Wrapper = styled.div<HtmlProps>`
     }
 
     a {
-      color: #0974cd;
+      color: #1f70c7;
       cursor: pointer;
+      text-decoration: none;
     }
 
     img {
@@ -150,7 +139,7 @@ const Wrapper = styled.div<HtmlProps>`
 
     th,
     td {
-      border: 1px solid #e0e4eb;
+      border: 1px solid #e2e8f0;
     }
 
     table {
@@ -163,7 +152,7 @@ const Wrapper = styled.div<HtmlProps>`
 
     th {
       padding: 10px 16px;
-      background: #f6f7fa;
+      background-color: #f0f3f8;
       font-weight: bold;
       color: #1e2134;
       min-width: 100px;
@@ -172,6 +161,12 @@ const Wrapper = styled.div<HtmlProps>`
     td {
       padding: 10px 16px;
       color: #1e2134;
+    }
+
+    hr {
+      background-color: #e2e8f0;
+      height: 1px;
+      border: none;
     }
   }
 
