@@ -28,7 +28,6 @@
     }
   },
   "dependencies": {
-    "@semantic-release/git": "^10.0.1",
     "marked": "^4.0.17",
     "sanitize-html": "^2.7.0"
   },
