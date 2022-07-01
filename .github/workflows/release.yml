@@ -23,6 +23,8 @@ jobs:
         with:
           cmd: install
 
+      - run: yarn add --dev @semantic-release/git
+
       - name: Semantic Release
         run: npx semantic-release
         env:
