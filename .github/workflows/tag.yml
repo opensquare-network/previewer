@@ -21,8 +21,6 @@ jobs:
         with:
           cmd: install
 
-      - run: npm i @semantic-release/git
-
       - name: Semantic Release
         run: npx semantic-release
         env:
