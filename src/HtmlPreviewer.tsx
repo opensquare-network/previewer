@@ -11,7 +11,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
     content = "",
     className = "html-body",
     allowedTags,
-    minHeight = 144,
+    minHeight,
   } = props;
 
   const resolvedPlugins = [
