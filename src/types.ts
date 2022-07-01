@@ -15,6 +15,12 @@ export type PreviewerProps = {
   className?: React.HTMLAttributes<HTMLElement>["className"];
 
   allowedTags?: string[];
+
+  /**
+   * @default 144
+   * @description unit px
+   */
+  minHeight?: React.CSSProperties["minHeight"];
 };
 
 export type HtmlProps = React.PropsWithChildren<{
