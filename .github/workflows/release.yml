@@ -23,7 +23,9 @@ jobs:
         with:
           cmd: install
 
-      - run: yarn add --dev @semantic-release/git
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install @semantic-release/git
 
       - name: Semantic Release
         run: npx semantic-release
