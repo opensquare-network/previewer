@@ -20,6 +20,11 @@ export type PreviewerProps = {
    * @description unit px
    */
   minHeight?: React.CSSProperties["minHeight"];
+
+  /**
+   * @description Max lines of markdown/html content displayed, ellipsis rest
+   */
+  maxLines?: number | string;
 };
 
 export type HtmlProps = React.PropsWithChildren<{
