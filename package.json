@@ -57,7 +57,8 @@
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
-      "@semantic-release/github"
+      "@semantic-release/github",
+      "@semantic-release/npm"
     ]
   }
 }
