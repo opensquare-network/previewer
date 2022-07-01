@@ -17,7 +17,6 @@ export type PreviewerProps = {
   allowedTags?: string[];
 
   /**
-   * @default 144
    * @description unit px
    */
   minHeight?: React.CSSProperties["minHeight"];

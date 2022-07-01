@@ -7,6 +7,10 @@ export function minHeightPlugin(
     name: "min-height",
 
     collectCss(css) {
+      if (!minHeight) {
+        return "";
+      }
+
       return css`
         min-height: ${minHeight}px;
       `;
