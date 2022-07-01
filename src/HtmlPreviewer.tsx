@@ -3,7 +3,7 @@ import { Html } from "./components/Html";
 import type { HtmlProps, PreviewerProps } from "./types";
 import { css } from "styled-components";
 import { applyPlugins } from "./shared";
-import { minHeightPlugin, sanitizeHtmlPlugin } from "./plugins";
+import { minHeightPlugin, sanitizeHtmlPlugin, maxLinesPlugin } from "./plugins";
 
 export function HtmlPreviewer(props: PreviewerProps) {
   const {
@@ -12,11 +12,13 @@ export function HtmlPreviewer(props: PreviewerProps) {
     className = "html-body",
     allowedTags,
     minHeight,
+    maxLines,
   } = props;
 
   const resolvedPlugins = [
     sanitizeHtmlPlugin(allowedTags),
     minHeightPlugin(minHeight),
+    maxLinesPlugin(maxLines),
     ...plugins,
   ];
 
