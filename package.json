@@ -57,7 +57,12 @@
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
-      "@semantic-release/git"
+      [
+        "@semantic-release/git",
+        {
+          "message": "chore(release): ${nextRelease.version}"
+        }
+      ]
     ]
   }
 }
