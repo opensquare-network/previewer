@@ -32,8 +32,8 @@ function createAppContainer() {
   };
 }
 
-export function renderIdentityOrAddressPlugin(
-  component: React.ReactElement,
+export function renderMentionAsIdentityPlugin(
+  IdentityComponent: React.ReactElement,
 ): Plugin {
   const re_identityOrAddress = /^(?<address>\w+)-(?<network>\w+)$/;
 
@@ -88,7 +88,7 @@ export function renderIdentityOrAddressPlugin(
 
           const { el } = createAppContainer();
           render(
-            cloneElement(component, {
+            cloneElement(IdentityComponent, {
               address,
               network,
             }),
@@ -101,3 +101,8 @@ export function renderIdentityOrAddressPlugin(
     },
   };
 }
+
+/**
+ * @deprecated use `renderMentionAsIdentityPlugin`
+ */
+export const renderIdentityOrAddressPlugin = renderMentionAsIdentityPlugin;

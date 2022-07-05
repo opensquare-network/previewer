@@ -17,7 +17,7 @@ yarn add @osn/previewer
 ```
 
 ```ts
-import { HtmlPreviewer, MarkdownPreviewer, renderIdentityOrAddressPlugin } from "@osn/previewer"
+import { HtmlPreviewer, MarkdownPreviewer, renderMentionAsIdentityPlugin } from "@osn/previewer"
 
 function IdentityOrAddr({ address, network }) {
   return <a>{address}</a>
@@ -25,7 +25,7 @@ function IdentityOrAddr({ address, network }) {
 
 <HtmlPreviewer
   content="<div>html content</div>"
-  plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]} // optional
+  plugins={[renderMentionAsIdentityPlugin(<IdentityOrAddr />)]} // optional
 />
 
 <MarkdownPreviewer
