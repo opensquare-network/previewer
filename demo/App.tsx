@@ -1,7 +1,7 @@
 import React from "react";
 import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
-import { renderIdentityOrAddressPlugin } from "../src/plugins";
+import { renderMentionAsIdentityPlugin } from "../src/plugins";
 import "./index.css";
 
 const mdFeatures = `
@@ -94,7 +94,7 @@ function App() {
           <h2>html previewer</h2>
           <HtmlPreviewer
             content={html}
-            plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+            plugins={[renderMentionAsIdentityPlugin(<IdentityOrAddr />)]}
           />
         </div>
 
@@ -102,7 +102,7 @@ function App() {
           <h2>markdown previewer</h2>
           <MarkdownPreviewer
             content={md}
-            plugins={[renderIdentityOrAddressPlugin(<IdentityOrAddr />)]}
+            plugins={[renderMentionAsIdentityPlugin(<IdentityOrAddr />)]}
           />
         </div>
       </div>
