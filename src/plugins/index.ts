@@ -1,7 +1,7 @@
 export {
-  renderMentionAsIdentityPlugin,
+  renderMentionIdentityUserPlugin,
   renderIdentityOrAddressPlugin,
-} from "./renderMentionAsIdentity";
+} from "./renderMentionIdentityUser";
 export { sanitizeHtmlPlugin } from "./sanitizeHtml";
 export { minHeightPlugin } from "./minHeight";
 export { maxLinesPlugin } from "./maxLines";
