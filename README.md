@@ -2,6 +2,14 @@
 
 Preview markdown/html.
 
+### Release
+
+```console
+git switch main
+git pull # sync code
+yarn release
+```
+
 ### Usage
 
 ```console
@@ -23,10 +31,4 @@ function IdentityOrAddr({ address, network }) {
 <MarkdownPreviewer
   content="markdown content"
 />
-```
-
-### Release
-
-```console
-yarn release
 ```
