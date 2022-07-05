@@ -1,6 +1,6 @@
 import type { Plugin, PreviewerProps } from "../types";
 import sanitizeHtml from "sanitize-html";
-import { aExtraAttrs } from "./renderMentionAsIdentity";
+import { aExtraAttrs } from "./renderMentionIdentityUser";
 
 export function sanitizeHtmlPlugin(
   allowedTags: PreviewerProps["allowedTags"] = sanitizeHtml.defaults.allowedTags.concat(

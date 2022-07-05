@@ -1,6 +1,6 @@
-// for business logic
+// for business logic only, combine common ui <MentionIdentityUser />
 // parse markdown link `[@DisplayName](Address-Network)`
-// to `<IdentityOrAddr />` and pass address, network to the component
+// to `<MentionIdentityUser />` and pass address, network to the component
 
 import { render } from "react-dom";
 import type { Plugin } from "../types";
@@ -8,7 +8,7 @@ import React, { cloneElement } from "react";
 
 const containerElement = {
   tag: "span",
-  className: "identity-or-address-app",
+  className: "mention-identity-user-app",
 };
 
 const targetElement = {
@@ -32,18 +32,20 @@ function createAppContainer() {
   };
 }
 
-export function renderMentionAsIdentityPlugin(
+export function renderMentionIdentityUserPlugin(
   IdentityComponent: React.ReactElement,
 ): Plugin {
-  const re_identityOrAddress = /^(?<address>\w+)-(?<network>\w+)$/;
+  const re_addressAndNetwork = /^(?<address>\w+)-(?<network>\w+)$/;
 
   return {
-    name: "render-identity-or-address",
+    name: "render-mention-identity-user",
 
     collectCss(css) {
       return css`
         ${containerElement.tag}.${containerElement.className} {
-          display: inline-block;
+          display: inline-flex;
+          /* do not know why, but works and looks normal */
+          vertical-align: bottom;
         }
       `;
     },
@@ -61,7 +63,7 @@ export function renderMentionAsIdentityPlugin(
               network: string;
             };
           }
-        >re_identityOrAddress.exec(href ?? "");
+        >re_addressAndNetwork.exec(href ?? "");
 
         if (identity) {
           const { address, network } = identity.groups;
@@ -103,6 +105,6 @@ export function renderMentionAsIdentityPlugin(
 }
 
 /**
- * @deprecated use `renderMentionAsIdentityPlugin`
+ * @deprecated use `renderMentionIdentityUserPlugin`
  */
-export const renderIdentityOrAddressPlugin = renderMentionAsIdentityPlugin;
+export const renderIdentityOrAddressPlugin = renderMentionIdentityUserPlugin;
