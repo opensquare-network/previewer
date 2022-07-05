@@ -65,6 +65,7 @@ const Wrapper = styled.div<HtmlProps>`
 
     p {
       word-break: break-word;
+      line-height: 24px !important;
     }
 
     ol,
