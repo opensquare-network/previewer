@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import styled, { css } from "styled-components";
+import styled, { css } from "../styled";
 import type { HtmlProps } from "../types";
 
 const no_scroll_bar = css`
