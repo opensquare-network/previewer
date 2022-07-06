@@ -6,22 +6,26 @@ import { render } from "react-dom";
 import type { Plugin } from "../types";
 import React, { cloneElement } from "react";
 
+type TargetElement = {
+  tag: keyof HTMLElementTagNameMap;
+  addressAttr: string;
+  networkAttr: string;
+};
+
+type Options = {
+  targetElement?: Partial<Pick<TargetElement, "tag">>;
+};
+
 const containerElement = {
   tag: "span",
   className: "mention-identity-user-app",
 };
 
-const targetElement = {
+const targetElement: TargetElement = {
   tag: "a",
   addressAttr: "osn-polka-address",
   networkAttr: "osn-polka-network",
 };
-
-// used in `sanitizeHtmlPlugin`
-export const aExtraAttrs = [
-  targetElement.addressAttr,
-  targetElement.networkAttr,
-];
 
 function createAppContainer() {
   const el = document.createElement(containerElement.tag);
@@ -34,7 +38,10 @@ function createAppContainer() {
 
 export function renderMentionIdentityUserPlugin(
   IdentityComponent: React.ReactElement,
+  options: Options = {},
 ): Plugin {
+  targetElement.tag = options.targetElement?.tag ?? targetElement.tag;
+
   const re_addressAndNetwork = /^(?<address>\w+)-(?<network>\w+)$/;
 
   return {
@@ -108,3 +115,8 @@ export function renderMentionIdentityUserPlugin(
  * @deprecated use `renderMentionIdentityUserPlugin`
  */
 export const renderIdentityOrAddressPlugin = renderMentionIdentityUserPlugin;
+
+// used in `sanitizeHtmlPlugin`
+export function getMentionIdentityUserTargetElementAttrs() {
+  return [targetElement.addressAttr, targetElement.networkAttr];
+}

@@ -1,6 +1,6 @@
 import type { Plugin, PreviewerProps } from "../types";
 import sanitizeHtml from "sanitize-html";
-import { aExtraAttrs } from "./renderMentionIdentityUser";
+import { getMentionIdentityUserTargetElementAttrs } from "./renderMentionIdentityUser";
 
 export function sanitizeHtmlPlugin(
   allowedTags: PreviewerProps["allowedTags"] = sanitizeHtml.defaults.allowedTags.concat(
@@ -16,8 +16,8 @@ export function sanitizeHtmlPlugin(
         allowedAttributes: {
           img: ["src", "size", "width", "height"],
           iframe: ["src", "width", "height"],
-          a: ["href", "rel", "target", ...aExtraAttrs],
-          "*": ["class"],
+          a: ["href", "rel", "target"],
+          "*": ["class", ...getMentionIdentityUserTargetElementAttrs()],
           td: ["align"],
           th: ["align"],
         },
