@@ -70,10 +70,11 @@ const html = `
     @displayName2
   </a>
 </p>
-</div>
+
+<span class="mention" osn-polka-address="qAeY4WkoFMYGReUrt6e4N35NrS6DAm1eGBSm8KLnPy8hdbZ" osn-polka-network="karura" data-index="1" data-denotation-char="@" data-id="qAeY4WkoFMYGReUrt6e4N35NrS6DAm1eGBSm8KLnPy8hdbZ" data-value="OpenSquare" data-is-key-registered="true" data-chain="karura">﻿<span contenteditable="false"><span class="ql-mention-denotation-char">@</span>OpenSquare</span>﻿</span>
 `;
 
-function IdentityOrAddr({ address = "", network = "" }) {
+function MentionIdentityUser({ address = "", network = "" }) {
   return (
     <a href={`/#/network/${network}/address/${address}`}>
       {address.slice(0, 3)}...{address.slice(address.length - 3)}
@@ -94,7 +95,7 @@ function App() {
           <h2>html previewer</h2>
           <HtmlPreviewer
             content={html}
-            plugins={[renderMentionIdentityUserPlugin(<IdentityOrAddr />)]}
+            plugins={[renderMentionIdentityUserPlugin(<MentionIdentityUser />)]}
           />
         </div>
 
@@ -102,7 +103,7 @@ function App() {
           <h2>markdown previewer</h2>
           <MarkdownPreviewer
             content={md}
-            plugins={[renderMentionIdentityUserPlugin(<IdentityOrAddr />)]}
+            plugins={[renderMentionIdentityUserPlugin(<MentionIdentityUser />)]}
           />
         </div>
       </div>
