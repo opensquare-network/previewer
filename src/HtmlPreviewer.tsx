@@ -16,10 +16,10 @@ export function HtmlPreviewer(props: PreviewerProps) {
   } = props;
 
   const resolvedPlugins = [
-    sanitizeHtmlPlugin(allowedTags),
     minHeightPlugin(minHeight),
     maxLinesPlugin(maxLines),
     ...plugins,
+    sanitizeHtmlPlugin(allowedTags),
   ];
 
   const extraCss: HtmlProps["extraCss"] = [];
