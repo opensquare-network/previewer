@@ -3,6 +3,7 @@ import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
 import { renderMentionIdentityUserPlugin } from "../src/plugins";
 import "./index.css";
+import "prismjs/themes/prism.css";
 
 const mdFeatures = `
 # heading 1
@@ -23,19 +24,20 @@ _**Bold Italic Text**_
 ~~Strikethrough~~
 
 - list
-- list
   - child list
 
 1. ordered
-2. ordered
-  2.1 child ordered
+  1.1 child ordered
 
 > Quote
 > > nested quote
 > > > nested quote
 
-\`\`\`sh
-code block
+\`\`\`js
+const name = "bar"
+function foo() {
+  return "foo"
+}
 \`\`\`
 
 \`inline code\`
