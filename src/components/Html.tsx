@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import styled, { css } from "../styled";
 import type { HtmlProps } from "../types";
+import { PrismCss } from "./Prism";
 
 const no_scroll_bar = css`
   -ms-overflow-style: none;
@@ -170,6 +171,8 @@ const Wrapper = styled.div<HtmlProps>`
       height: 1px;
       border: none;
     }
+
+    ${PrismCss}
   }
 
   ${(p) => p?.extraCss?.map((s) => s)}
