@@ -172,7 +172,15 @@ const Wrapper = styled.div<HtmlProps>`
       border: none;
     }
 
-    ${PrismCss}
+    ${PrismCss};
+
+    /* NOTE: forced remove token background */
+    code[class*="language-"],
+    pre[class*="language-"] {
+      .token {
+        background: transparent;
+      }
+    }
   }
 
   ${(p) => p?.extraCss?.map((s) => s)}
