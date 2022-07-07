@@ -1,9 +1,6 @@
 import { Plugin } from "../types";
 import Prism from "prismjs";
 
-/**
- * @description Install `Prismjs`
- */
 export function highLightPlugin(): Plugin {
   return {
     name: "highlight-code",

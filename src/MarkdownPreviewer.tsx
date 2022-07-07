@@ -1,6 +1,7 @@
 import { marked, Renderer } from "marked";
 
 import { HtmlPreviewer } from "./HtmlPreviewer";
+import { highLightPlugin } from "./plugins";
 import { applyPlugins } from "./shared";
 import { PreviewerProps } from "./types";
 
@@ -12,6 +13,8 @@ export function MarkdownPreviewer(props: PreviewerProps) {
     ...restProps
   } = props;
 
+  const resolvePlugins = [...plugins, highLightPlugin()];
+
   const renderer = new Renderer();
 
   const markedOptions: marked.MarkedOptions = {
@@ -19,7 +22,7 @@ export function MarkdownPreviewer(props: PreviewerProps) {
     renderer,
   };
 
-  applyPlugins(plugins, "markedOptions", markedOptions);
+  applyPlugins(resolvePlugins, "markedOptions", markedOptions);
 
   const html = marked.parse(content, markedOptions);
 
@@ -27,7 +30,7 @@ export function MarkdownPreviewer(props: PreviewerProps) {
     <HtmlPreviewer
       className={className}
       content={html}
-      plugins={plugins}
+      plugins={resolvePlugins}
       {...restProps}
     />
   );
