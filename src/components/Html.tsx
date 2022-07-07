@@ -102,6 +102,7 @@ const Wrapper = styled.div<HtmlProps>`
         padding: 0 !important;
         background: transparent !important;
         white-space: pre-wrap !important;
+        display: inline;
 
         span.identifier {
           white-space: nowrap !important;
