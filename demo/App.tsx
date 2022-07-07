@@ -3,7 +3,6 @@ import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
 import { renderMentionIdentityUserPlugin } from "../src/plugins";
 import "./index.css";
-import "prismjs/themes/prism.css";
 
 const mdFeatures = `
 # heading 1
