@@ -20,6 +20,7 @@ export function sanitizeHtmlPlugin(
           "*": ["class", ...getMentionIdentityUserTargetElementAttrs()],
           td: ["align"],
           th: ["align"],
+          li: ["data-list"],
         },
       });
     },
