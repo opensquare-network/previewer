@@ -7,24 +7,26 @@
   "scripts": {
     "dev": "vite",
     "build:demo": "tsc && vite build",
-    "build": "tsup --dts --format esm --clean --inject ./react-import.js ./src",
+    "build": "tsup --dts --format esm,cjs --clean --inject ./react-import.js ./src",
     "prepublishOnly": "npm run build",
     "release": "bumpp --tag --commit --push"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./*": "./dist/*",
     "./plugins": {
       "import": "./dist/plugins/index.mjs",
+      "require": "./dist/plugins/index.js",
       "types": "./dist/plugins/index.d.ts"
     }
   },
