@@ -166,6 +166,10 @@ const Wrapper = styled.div<HtmlProps>`
       color: #1e2134;
     }
 
+    tbody tr:nth-child(even) {
+      background-color: #fbfcfe;
+    }
+
     hr {
       background-color: #e2e8f0;
       height: 1px;
