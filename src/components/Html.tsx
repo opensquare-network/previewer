@@ -31,14 +31,12 @@ const Wrapper = styled.div<HtmlProps>`
     h6 {
       font-weight: 600;
 
-      :not(:first-child) {
-        margin-top: 0.25em;
-      }
+      margin-top: 24px;
+      margin-bottom: 16px;
 
-      :not(:last-child) {
-        margin-bottom: 0.25em;
+      :first-child {
+        margin-top: 0;
       }
-
       :last-child {
         margin-bottom: 0;
       }
