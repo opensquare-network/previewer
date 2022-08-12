@@ -2,14 +2,6 @@
 
 Preview markdown/html.
 
-### Release
-
-```console
-git switch main
-git pull # sync code
-yarn release
-```
-
 ### Usage
 
 ```console
