@@ -27,6 +27,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
 
   const ref = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState(content);
+  useEffect(() => setHtml(content), [content]);
 
   useEffect(() => {
     applyPlugins(resolvedPlugins, "transformHtml", html, setHtml);

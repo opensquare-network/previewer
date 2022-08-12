@@ -1,4 +1,5 @@
 import { marked, Renderer } from "marked";
+import { useEffect, useState } from "react";
 
 import { HtmlPreviewer } from "./HtmlPreviewer";
 import { highLightPlugin } from "./plugins";
@@ -24,7 +25,8 @@ export function MarkdownPreviewer(props: PreviewerProps) {
 
   applyPlugins(resolvePlugins, "markedOptions", markedOptions);
 
-  const html = marked.parse(content, markedOptions);
+  const [html, setHtml] = useState("");
+  useEffect(() => setHtml(marked.parse(content, markedOptions)), [content]);
 
   return (
     <HtmlPreviewer
