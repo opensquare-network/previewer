@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
 import { renderMentionIdentityUserPlugin } from "../src/plugins";
@@ -84,12 +84,15 @@ function MentionIdentityUser({ address = "", network = "" }) {
 }
 
 function App() {
+  const [md, setMd] = useState(mdFeatures);
+
   return (
     <div className="App">
+      <button onClick={() => setMd("## change md features")}>button</button>
       <div className="features">
         <div>
           <h2>Features</h2>
-          <MarkdownPreviewer content={mdFeatures} />
+          <MarkdownPreviewer content={md} />
         </div>
 
         <div>
