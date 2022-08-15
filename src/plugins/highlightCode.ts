@@ -6,14 +6,17 @@ export function highLightPlugin(): Plugin {
     name: "highlight-code",
 
     markedOptions(options) {
-      options.highlight = function (code, lang) {
+      options.highlight = function(code, lang) {
         if (!lang) {
           return code;
         }
-
-        const grammer = Prism.languages[lang] ?? Prism.languages.markup;
+        let syntaxLang = lang;
+        if (lang === "ts" || lang === "typescript") {
+          syntaxLang = "js";
+        }
+        const grammer = Prism.languages[syntaxLang] ?? Prism.languages.markup;
         return Prism.highlight(code, grammer, lang || "markup");
       };
-    },
+    }
   };
 }
