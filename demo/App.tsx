@@ -39,6 +39,19 @@ function foo() {
 }
 \`\`\`
 
+\`\`\`ts
+export type Person = {
+  name: string
+  age: number
+}
+export function gerPerson(): Person {
+  return {
+    name: "name",
+    age: 33,
+  }
+}
+\`\`\`
+
 \`inline code\`
 
 https://voting.opensquare.io/
