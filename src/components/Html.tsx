@@ -112,15 +112,9 @@ const Wrapper = styled.div<HtmlProps>`
     code {
       font-family: i-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
         Liberation Mono, monospace !important;
-      ${no_scroll_bar};
-      max-width: 100%;
-      padding: 0 8px;
+      padding: 2px 8px;
       background-color: #f0f3f8 !important;
       border-radius: 4px;
-      white-space: nowrap !important;
-      word-break: keep-all;
-      overflow-x: scroll;
-      display: inline-flex;
     }
 
     a {

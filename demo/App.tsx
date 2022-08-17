@@ -32,6 +32,7 @@ _**Bold Italic Text**_
 > > nested quote
 > > > nested quote
 
+
 \`\`\`js
 const name = "bar"
 function foo() {
@@ -53,6 +54,10 @@ export function gerPerson(): Person {
 \`\`\`
 
 \`inline code\`
+
+sim an address \`CwN2XPNZD72r7vZpD6UqTUt2s3gztvWLf7DuzoDtqnNbpZF\`
+
+test github inline code css: \`bounty -> curator(OpenSquare) -> child bounties -> developers bounty -> curator(OpenSquare) -> child bounties -> developers bounty -> curator(OpenSquare) -> child bounties -> developers\`
 
 https://voting.opensquare.io/
 
