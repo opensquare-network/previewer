@@ -25,7 +25,7 @@ export function MarkdownPreviewer(props: PreviewerProps) {
 
   applyPlugins(resolvePlugins, "markedOptions", markedOptions);
 
-  const [html, setHtml] = useState("");
+  const [html, setHtml] = useState(marked.parse(content, markedOptions));
   useEffect(() => setHtml(marked.parse(content, markedOptions)), [content]);
 
   return (
