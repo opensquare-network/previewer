@@ -3,6 +3,10 @@ import styled, { css } from "../styled";
 import type { HtmlProps } from "../types";
 import { PrismCss } from "./Prism";
 
+type StyledHtmlProps = HtmlProps & {
+  $extraCss: HtmlProps["extraCss"];
+};
+
 const no_scroll_bar = css`
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -12,7 +16,7 @@ const no_scroll_bar = css`
   }
 `;
 
-const Wrapper = styled.div<HtmlProps>`
+const Wrapper = styled.div<StyledHtmlProps>`
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -179,7 +183,7 @@ const Wrapper = styled.div<HtmlProps>`
     }
   }
 
-  ${(p) => p?.extraCss?.map((s) => s)}
+  ${(p) => p?.$extraCss?.map((s) => s)}
 `;
 
 export const Html = forwardRef((props: any = {}, ref) => {

@@ -38,7 +38,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
     <div className="osn-previewer" ref={ref}>
       <Html
         className={className}
-        extraCss={extraCss}
+        $extraCss={extraCss}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
