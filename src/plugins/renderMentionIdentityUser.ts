@@ -2,7 +2,7 @@
 // parse markdown link `[@DisplayName](Address-Network)`
 // to `<MentionIdentityUser />` and pass address, network to the component
 
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import type { Plugin } from "../types";
 import React, { cloneElement } from "react";
 
@@ -96,12 +96,12 @@ export function renderMentionIdentityUserPlugin(
           const network = t.getAttribute(targetElement.networkAttr);
 
           const { el } = createAppContainer();
-          render(
+          const targetRoot = createRoot(el);
+          targetRoot.render(
             cloneElement(IdentityComponent, {
               address,
               network,
             }),
-            el,
           );
 
           t.replaceWith(el);
