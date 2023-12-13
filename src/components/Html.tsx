@@ -170,6 +170,7 @@ const Wrapper = styled.div<StyledHtmlProps>`
       background-color: #e2e8f0;
       height: 1px;
       border: none;
+      margin: 16px 0;
     }
 
     ${PrismCss};
