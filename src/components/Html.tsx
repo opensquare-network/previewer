@@ -44,6 +44,11 @@ const Wrapper = styled.div<StyledHtmlProps>`
       :last-child {
         margin-bottom: 0;
       }
+
+      & b,
+      & strong {
+        font-weight: inherit;
+      }
     }
 
     h1 {
