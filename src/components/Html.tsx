@@ -101,7 +101,7 @@ const Wrapper = styled.div<StyledHtmlProps>`
 
       margin: 8px 0;
       padding: 0 8px;
-      background-color: #f0f3f8 !important;
+      background-color: #f0f3f8;
       border-radius: 4px;
       white-space: pre-wrap !important;
       overflow-x: scroll;
@@ -122,7 +122,7 @@ const Wrapper = styled.div<StyledHtmlProps>`
       font-family: i-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
         Liberation Mono, monospace !important;
       padding: 2px 8px;
-      background-color: #f0f3f8 !important;
+      background-color: #f0f3f8;
       border-radius: 4px;
     }
 
