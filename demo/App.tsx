@@ -3,6 +3,7 @@ import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
 import { renderMentionIdentityUserPlugin } from "../src/plugins";
 import "./index.css";
+import "../src/styles.css";
 
 const mdFeatures = `
 # heading 1
