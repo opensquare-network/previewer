@@ -8,8 +8,9 @@ Preview markdown/html.
 yarn add @osn/previewer
 ```
 
-```ts
+```jsx
 import { HtmlPreviewer, MarkdownPreviewer, renderMentionIdentityUserPlugin } from "@osn/previewer"
+import "@osn/previewer/styles.css"
 
 function MentionIdentityUser({ address, network }) {
   return <a>{address}</a>

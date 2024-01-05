@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build:demo": "tsc && vite build",
-    "build": "tsup --dts --format esm,cjs --clean --inject ./react-import.js ./src",
+    "build": "tsup --dts --format esm,cjs --clean --inject ./react-import.js ./src/index.ts && cp ./src/styles.css ./dist",
     "prepublishOnly": "npm run build"
   },
   "files": [

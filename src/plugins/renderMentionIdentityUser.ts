@@ -47,16 +47,6 @@ export function renderMentionIdentityUserPlugin(
   return {
     name: "render-mention-identity-user",
 
-    collectCss(css) {
-      return css`
-        ${containerElement.tag}.${containerElement.className} {
-          display: inline-flex;
-          /* do not know why, but works and looks normal */
-          vertical-align: bottom;
-        }
-      `;
-    },
-
     markedOptions(options) {
       const renderer = options.renderer!;
 
@@ -98,6 +88,7 @@ export function renderMentionIdentityUserPlugin(
           const { el } = createAppContainer();
           const targetRoot = createRoot(el);
           targetRoot.render(
+            // @ts-ignore
             cloneElement(IdentityComponent, {
               address,
               network,
