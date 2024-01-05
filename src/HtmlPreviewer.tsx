@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Html } from "./components/Html";
-import type { HtmlProps, PreviewerProps } from "./types";
-import { css } from "styled-components";
+import type { PreviewerProps } from "./types";
 import { applyPlugins } from "./shared";
-import { minHeightPlugin, sanitizeHtmlPlugin, maxLinesPlugin } from "./plugins";
+import { sanitizeHtmlPlugin } from "./plugins";
 
 export function HtmlPreviewer(props: PreviewerProps) {
   const {
@@ -15,15 +13,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
     maxLines,
   } = props;
 
-  const resolvedPlugins = [
-    minHeightPlugin(minHeight),
-    maxLinesPlugin(maxLines),
-    ...plugins,
-    sanitizeHtmlPlugin(allowedTags),
-  ];
-
-  const extraCss: HtmlProps["extraCss"] = [];
-  applyPlugins(resolvedPlugins, "collectCss", css, (str) => extraCss.push(str));
+  const resolvedPlugins = [...plugins, sanitizeHtmlPlugin(allowedTags)];
 
   const ref = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState(content);
@@ -36,9 +26,17 @@ export function HtmlPreviewer(props: PreviewerProps) {
 
   return (
     <div className="osn-previewer" ref={ref}>
-      <Html
+      <div
         className={className}
-        $extraCss={extraCss}
+        style={{
+          ...(maxLines && {
+            display: "-webkit-box",
+            "-webkit-line-clamp": maxLines,
+            "-webkit-box-orient": "vertical",
+            overflow: "hidden",
+          }),
+          ...(minHeight && { minHeight }),
+        }}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
