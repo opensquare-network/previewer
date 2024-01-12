@@ -37,6 +37,10 @@
   blockquote {
     color: var(--textSecondary);
   }
+
+  pre {
+    color: var(--textPrimary);
+  }
 }
 
 /* renderMentionIdentityUser.ts */
