@@ -1,6 +1,8 @@
 import { Plugin } from "../types";
 import Prism from "prismjs";
+import "prismjs/components/prism-javascript.js";
 import "prismjs/components/prism-typescript.js";
+import "prismjs/components/prism-rust.js";
 
 export function highLightPlugin(): Plugin {
   return {
