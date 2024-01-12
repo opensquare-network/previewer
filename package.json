@@ -30,6 +30,7 @@
     }
   },
   "dependencies": {
+    "github-markdown-css": "^5.5.0",
     "marked": "^4.0.17",
     "prismjs": "^1.28.0",
     "sanitize-html": "^2.7.0"
