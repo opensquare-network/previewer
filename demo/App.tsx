@@ -25,9 +25,14 @@ _**Bold Italic Text**_
 
 - list
   - child list
+  - child list
+  - child list
+  - child list
 
 1. ordered
-  1.1 child ordered
+   1. child ordered
+   2. child ordered
+   3. child ordered
 
 > Quote
 > > nested quote
@@ -51,6 +56,15 @@ export function gerPerson(): Person {
     name: "name",
     age: 33,
   }
+}
+\`\`\`
+
+\`\`\`rust
+fn main() {
+  // Statements here are executed when the compiled binary is called.
+
+  // Print text to the console.
+  println!("Hello World!");
 }
 \`\`\`
 
