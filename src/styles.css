@@ -8,6 +8,12 @@
   background-color: transparent;
   font-size: 14px;
 
+  h1,
+  h2 {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
   /* block level */
   h6 {
     color: var(--textSecondary);
