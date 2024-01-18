@@ -1,12 +1,20 @@
-import type { Plugin, PreviewerProps } from "../types";
+import type { Plugin } from "../types";
 import sanitizeHtml from "sanitize-html";
 import { getMentionIdentityUserTargetElementAttrs } from "./renderMentionIdentityUser";
 
-export function sanitizeHtmlPlugin(
-  allowedTags: PreviewerProps["allowedTags"] = sanitizeHtml.defaults.allowedTags.concat(
-    ["img", "iframe", "br", "ins", "del"],
-  ),
-): Plugin {
+export function sanitizeHtmlPlugin(options?: sanitizeHtml.IOptions): Plugin {
+  const {
+    allowedTags = sanitizeHtml.defaults.allowedTags.concat([
+      "img",
+      "iframe",
+      "br",
+      "ins",
+      "del",
+    ]),
+    allowedAttributes = {},
+    ...rest
+  } = options ?? {};
+
   return {
     name: "sanitize-html",
 
@@ -21,7 +29,9 @@ export function sanitizeHtmlPlugin(
           td: ["align"],
           th: ["align"],
           li: ["data-list"],
+          ...allowedAttributes,
         },
+        ...rest,
       });
     },
   };

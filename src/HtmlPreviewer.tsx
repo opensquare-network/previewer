@@ -13,7 +13,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
     maxLines,
   } = props;
 
-  const resolvedPlugins = [...plugins, sanitizeHtmlPlugin(allowedTags)];
+  const resolvedPlugins = [...plugins, sanitizeHtmlPlugin({ allowedTags })];
 
   const ref = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState(content);
