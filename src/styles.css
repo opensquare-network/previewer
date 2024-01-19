@@ -3,6 +3,7 @@
 
 .markdown-body,
 .html-body {
+  color-scheme: none;
   font-family: var(--font-inter, Inter);
   color: var(--textPrimary);
   background-color: transparent;
