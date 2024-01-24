@@ -7,7 +7,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
   const {
     plugins = [],
     content = "",
-    className = "html-body",
+    className = "",
     allowedTags,
     minHeight,
     maxLines,
@@ -27,7 +27,7 @@ export function HtmlPreviewer(props: PreviewerProps) {
   return (
     <div className="osn-previewer" ref={ref}>
       <div
-        className={className}
+        className={`markdown-body ${className}`}
         style={{
           ...(maxLines && {
             display: "-webkit-box",
