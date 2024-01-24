@@ -6,8 +6,9 @@
   },
   "scripts": {
     "dev": "vite",
+    "gen-css": "github-markdown-css --type auto --root-selector '.markdown-body, .html-body' > src/github-markdown.css",
     "build:demo": "tsc && vite build",
-    "build": "tsup",
+    "build": "npm run gen-css && tsup",
     "prepublishOnly": "npm run build"
   },
   "files": [
