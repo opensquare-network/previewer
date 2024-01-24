@@ -5,8 +5,7 @@
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
-.markdown-body,
-.html-body {
+.markdown-body {
   code[class*="language-"],
   pre[class*="language-"] {
     background: none;

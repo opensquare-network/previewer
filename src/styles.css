@@ -1,8 +1,7 @@
 @import "github-markdown-css/github-markdown.css";
 @import "./prism.css";
 
-.markdown-body,
-.html-body {
+.markdown-body {
   color-scheme: none;
   font-family: var(--font-inter, Inter);
   color: var(--textPrimary);
@@ -56,8 +55,7 @@
 
 /* renderMentionIdentityUser.ts */
 /* containerElement */
-.markdown-body,
-.html-body {
+.markdown-body {
   & span.mention-identity-user-app {
     display: inline-flex;
     /* do not know why, but works and looks normal */
