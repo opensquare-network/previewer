@@ -11,7 +11,8 @@ export function applyPlugins(
   plugins.forEach((plugin) => {
     const fn = plugin[key];
     if (typeof fn === "function") {
-      cb(fn(param));
+      param = fn(param) || param;
+      cb(param);
     }
   });
 }
