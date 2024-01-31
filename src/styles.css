@@ -51,6 +51,10 @@
   pre {
     color: var(--textPrimary);
   }
+
+  hr {
+    height: 1px;
+  }
 }
 
 /* renderMentionIdentityUser.ts */
