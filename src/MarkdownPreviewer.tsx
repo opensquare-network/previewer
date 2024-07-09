@@ -1,10 +1,12 @@
-import { marked, MarkedOptions, Renderer } from "marked";
+import { Marked, MarkedOptions, Renderer } from "marked";
 import { useEffect, useState } from "react";
 
 import { HtmlPreviewer } from "./HtmlPreviewer";
 import { applyPlugins } from "./shared";
 import { PreviewerProps } from "./types";
 import { highlightCodeExtension } from "./extensions/highlightCode";
+
+const marked = new Marked();
 
 marked.use(highlightCodeExtension());
 
