@@ -1,0 +1,1 @@
+export { highlightCodeExtension } from "./highlightCode";
