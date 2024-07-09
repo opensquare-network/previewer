@@ -1,5 +1,5 @@
 import React from "react";
-import type { marked } from "marked";
+import type { MarkedOptions } from "marked";
 
 export type PreviewerProps = {
   plugins?: Plugin[];
@@ -32,7 +32,7 @@ export type Plugin = {
   /**
    * @description Only works on `MarkdownPreviewer`
    */
-  markedOptions?(options: marked.MarkedOptions): void;
+  markedOptions?(options: MarkedOptions): void;
 
   /**
    * @param html sanitized html
