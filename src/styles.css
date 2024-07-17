@@ -55,6 +55,10 @@
   hr {
     height: 1px;
   }
+
+  img {
+    background-color: transparent;
+  }
 }
 
 /* renderMentionIdentityUser.ts */
