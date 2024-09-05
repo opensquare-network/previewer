@@ -59,6 +59,25 @@
   img {
     background-color: transparent;
   }
+
+  table {
+    tr {
+      background-color: var(--fillBgPrimary);
+      &:nth-child(2n) {
+        background-color: var(--fillBgSecondary);
+      }
+    }
+    th,
+    td {
+      border-color: var(--strokeBorderDefault);
+    }
+    thead,
+    tfoot {
+      tr {
+        background-color: var(--fillBgTertiary);
+      }
+    }
+  }
 }
 
 /* renderMentionIdentityUser.ts */
