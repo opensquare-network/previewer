@@ -14,8 +14,8 @@ export function highlightCodeExtension() {
         return code;
       }
 
-      const grammer = Prism.languages[lang] ?? Prism.languages.markup;
-      return Prism.highlight(code, grammer, lang || "markup");
+      const syntax = Prism.languages[lang] ?? Prism.languages.markup;
+      return Prism.highlight(code, syntax, lang || "markup");
     },
   });
 }
