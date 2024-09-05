@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HtmlPreviewer } from "../src/HtmlPreviewer";
 import { MarkdownPreviewer } from "../src/MarkdownPreviewer";
 import { renderMentionIdentityUserPlugin } from "../src/plugins";
+import "@osn/common-ui/styles/index.css";
 import "./index.css";
 import "../src/styles.css";
 
 const mdFeatures = `
+<div style="font-size: 10px;">inline style</div>
+
 # heading 1
 ## heading 2
 ### heading 3
@@ -40,13 +43,22 @@ _**Bold Italic Text**_
 
 
 \`\`\`js
+// js
 const name = "bar"
 function foo() {
   return "foo"
 }
 \`\`\`
 
+\`\`\`jsx
+// jsx
+function App() {
+  return <div>App</div>
+}
+\`\`\`
+
 \`\`\`ts
+// ts
 export type Person = {
   name: string
   age: number
@@ -59,12 +71,51 @@ export function gerPerson(): Person {
 }
 \`\`\`
 
+\`\`\`tsx
+// tsx
+interface Props {
+  name: string
+}
+function App(props: Props) {
+  return <div>App</div>
+}
+\`\`\`
+
 \`\`\`rust
+// rust
 fn main() {
   // Statements here are executed when the compiled binary is called.
 
   // Print text to the console.
   println!("Hello World!");
+}
+\`\`\`
+
+\`\`\`tsx
+// Register dot-connect custom elements and configure supported wallets
+// this is the companion UI library for managing wallet connections
+registerDotConnect({
+  wallets: config.wallets,
+});
+
+function App() {
+  return (
+    <ReDotProvider config={config}>
+      <ReDotChainProvider chainId="polkadot">
+        <ErrorBoundary
+          fallbackRender={() => (
+            <article>
+              <p>Sorry, something went wrong!</p>
+            </article>
+          )}
+        >
+          <Suspense fallback={<progress />}>
+            <DApp />
+          </Suspense>
+        </ErrorBoundary>
+      </ReDotChainProvider>
+    </ReDotProvider>
+  );
 }
 \`\`\`
 
@@ -118,6 +169,14 @@ function MentionIdentityUser({ address = "", network = "" }) {
 
 function App() {
   const [md, setMd] = useState(mdFeatures);
+
+  useEffect(() => {
+    fetch("/post.md")
+      .then((resp) => resp.text())
+      .then((content) => {
+        // setMd(content);
+      });
+  }, []);
 
   return (
     <div className="App">
