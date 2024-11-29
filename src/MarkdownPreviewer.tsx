@@ -15,24 +15,19 @@ export function MarkdownPreviewer(props: MarkdownPreviewerProps = {}) {
     plugins = [],
     content = "",
     className = "",
-    markedOptions,
+    markedOptions = {},
     ...restProps
   } = props;
 
-  const renderer = new Renderer();
+  markedOptions.renderer = markedOptions.renderer || new Renderer();
 
-  const resolvedMarkedOptions: MarkedOptions = {
-    ...markedOptions,
-    renderer,
-  };
-
-  applyPlugins(plugins, "markedOptions", resolvedMarkedOptions);
+  applyPlugins(plugins, "markedOptions", markedOptions);
 
   const [html, setHtml] = useState(
-    marked.parse(content, resolvedMarkedOptions) as string,
+    marked.parse(content, markedOptions) as string,
   );
   useEffect(() => {
-    setHtml(marked.parse(content, resolvedMarkedOptions) as string);
+    setHtml(marked.parse(content, markedOptions) as string);
   }, [content]);
 
   return (
