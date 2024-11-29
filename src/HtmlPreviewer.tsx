@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import type { PreviewerProps } from "./types";
+import type { HtmlPreviewerProps } from "./types";
 import { applyPlugins } from "./shared";
 import { sanitizeHtmlPlugin } from "./plugins";
 
-export function HtmlPreviewer(props: PreviewerProps) {
+export function HtmlPreviewer(props: HtmlPreviewerProps = {}) {
   const {
     plugins = [],
     content = "",

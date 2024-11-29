@@ -3,30 +3,36 @@ import { useEffect, useState } from "react";
 
 import { HtmlPreviewer } from "./HtmlPreviewer";
 import { applyPlugins } from "./shared";
-import { PreviewerProps } from "./types";
+import { MarkdownPreviewerProps } from "./types";
 import { highlightCodeExtension } from "./extensions/highlightCode";
 
 const marked = new Marked();
 
 marked.use(highlightCodeExtension());
 
-export function MarkdownPreviewer(props: PreviewerProps) {
-  const { plugins = [], content = "", className = "", ...restProps } = props;
+export function MarkdownPreviewer(props: MarkdownPreviewerProps = {}) {
+  const {
+    plugins = [],
+    content = "",
+    className = "",
+    markedOptions,
+    ...restProps
+  } = props;
 
   const renderer = new Renderer();
 
-  const markedOptions: MarkedOptions = {
-    breaks: true,
+  const resolvedMarkedOptions: MarkedOptions = {
+    ...markedOptions,
     renderer,
   };
 
-  applyPlugins(plugins, "markedOptions", markedOptions);
+  applyPlugins(plugins, "markedOptions", resolvedMarkedOptions);
 
   const [html, setHtml] = useState(
-    marked.parse(content, markedOptions) as string,
+    marked.parse(content, resolvedMarkedOptions) as string,
   );
   useEffect(() => {
-    setHtml(marked.parse(content, markedOptions) as string);
+    setHtml(marked.parse(content, resolvedMarkedOptions) as string);
   }, [content]);
 
   return (

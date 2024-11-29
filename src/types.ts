@@ -1,7 +1,7 @@
 import React from "react";
 import type { MarkedOptions } from "marked";
 
-export type PreviewerProps = {
+export type MarkdownPreviewerProps = {
   plugins?: Plugin[];
   /**
    * @description The content to preview
@@ -21,7 +21,14 @@ export type PreviewerProps = {
    * @description Max lines of markdown/html content displayed, ellipsis rest
    */
   maxLines?: number | string;
+
+  /**
+   * @description Options for marked
+   */
+  markedOptions?: MarkedOptions;
 };
+
+export type HtmlPreviewerProps = Omit<MarkdownPreviewerProps, "markedOptions">;
 
 export type Plugin = {
   /**
