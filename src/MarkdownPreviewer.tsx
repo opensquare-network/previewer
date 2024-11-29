@@ -3,22 +3,23 @@ import { useEffect, useState } from "react";
 
 import { HtmlPreviewer } from "./HtmlPreviewer";
 import { applyPlugins } from "./shared";
-import { PreviewerProps } from "./types";
+import { MarkdownPreviewerProps } from "./types";
 import { highlightCodeExtension } from "./extensions/highlightCode";
 
 const marked = new Marked();
 
 marked.use(highlightCodeExtension());
 
-export function MarkdownPreviewer(props: PreviewerProps) {
-  const { plugins = [], content = "", className = "", ...restProps } = props;
+export function MarkdownPreviewer(props: MarkdownPreviewerProps = {}) {
+  const {
+    plugins = [],
+    content = "",
+    className = "",
+    markedOptions = {},
+    ...restProps
+  } = props;
 
-  const renderer = new Renderer();
-
-  const markedOptions: MarkedOptions = {
-    breaks: true,
-    renderer,
-  };
+  markedOptions.renderer = markedOptions.renderer || new Renderer();
 
   applyPlugins(plugins, "markedOptions", markedOptions);
 
