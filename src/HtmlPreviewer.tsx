@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { HtmlPreviewerProps } from "./types";
 import { applyPlugins } from "./shared";
-import { sanitizeHtmlPlugin } from "./plugins";
+import { sanitizeHtmlPlugin, renderExternalLinkPlugin } from "./plugins";
 
 export function HtmlPreviewer(props: HtmlPreviewerProps = {}) {
   const {
@@ -13,7 +13,11 @@ export function HtmlPreviewer(props: HtmlPreviewerProps = {}) {
     maxLines,
   } = props;
 
-  const resolvedPlugins = [...plugins, sanitizeHtmlPlugin({ allowedTags })];
+  const resolvedPlugins = [
+    ...plugins,
+    sanitizeHtmlPlugin({ allowedTags }),
+    renderExternalLinkPlugin(),
+  ];
 
   const ref = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState(content);
