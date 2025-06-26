@@ -3,3 +3,4 @@ export {
   renderIdentityOrAddressPlugin,
 } from "./renderMentionIdentityUser";
 export { sanitizeHtmlPlugin } from "./sanitizeHtml";
+export { renderExternalLinkPlugin } from "./renderExternalLinkPlugin";
